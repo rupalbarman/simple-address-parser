@@ -19,6 +19,8 @@ EXTENDED_CASES = [
     ('that street 10a', ('10a', 'that street')),
     ('your street 10 v', ('10 v', 'your street')),
     ('102 main street', ('102', 'main street')),
+    ('1005 N Gravenstein Highway Sebastopol',
+     ('1005 N', 'Gravenstein Highway Sebastopol')),
 ]
 
 HARD_CASES = [

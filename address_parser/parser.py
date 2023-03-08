@@ -21,8 +21,14 @@ STREET_SHORT_NOTATIONS = (
 )
 
 
-def get_house_score(token_index_map, curr_idx, house_on_left=True):
+def get_house_score(token_index_map: dict, curr_idx: int, house_on_left=True) -> int:
+    '''
+    Returns a 'house' integer score which, if greater than 0, suggests the given token (curr_idx) could be a part
+    of house number.
 
+    Uses a bias to know whether a house number is present on the left or right side and uses this bias
+    to assign scores to neighboring tokens.
+    '''
     # set neighbour token based on house bias direction
     if house_on_left:
         _, next_house_score = token_index_map.get(curr_idx - 1, [None, 0])
@@ -51,7 +57,11 @@ def get_house_score(token_index_map, curr_idx, house_on_left=True):
     return curr_house_score
 
 
-def parse(raw_address):
+def parse(raw_address: str) -> tuple:
+    '''
+    Parses a given informal address into a tuple containing the house number
+    and the street.
+    '''
     house = ''
     street = ''
 
